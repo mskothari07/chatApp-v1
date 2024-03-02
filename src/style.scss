@@ -1,3 +1,24 @@
+@mixin mobile{
+    @media screen and (max-width:480px) { 
+        @content;
+    }
+}
+
+@mixin tablet{
+    @media screen and (max-width:768px) { 
+        @content;
+    }
+}
+
+@mixin laptop{
+    @media screen and (max-width:1200px) { 
+        @content;
+    }
+}
+
+
+
+
 .formContainer{
     background:  #2aa843;
     // background-color: rgb(219, 219, 192);
@@ -84,6 +105,9 @@
         height: 95%;
         display: flex;
         overflow: hidden;
+        @include tablet{
+            width: 90%;
+        }
 
         .sidebar{
             flex: 1;
@@ -91,6 +115,7 @@
             background-color: #234228;
             border-radius: 10px;
             overflow:auto;
+           
             .navbar{
                 display: flex;
                 align-items: center;
@@ -103,6 +128,10 @@
                 .logo{
                     font-weight: bold;
                     font-size: 1.2rem;
+
+                    @include tablet{
+                        display: none;
+                    }
                 }
                 .user{
                     gap: 10px;
@@ -240,7 +269,7 @@
                         }
                     }
                     .messageContent{
-                        max-width: 8%;
+                        max-width: 80%;
                         display: flex;
                         flex-direction: column;
                         justify-content: space-between;
@@ -250,7 +279,7 @@
                             background-color: white;
                             padding: 10px 20px;
                             border-radius: 0px 10px 10px 10px;
-                            max-width: max-content;
+                            max-width: max-width;
                         }
                         img{
                             width: 50%;
@@ -261,7 +290,7 @@
 
                         .messageContent{
                             align-items: flex-end;
-                            
+
                             p{
                                 background-color: #d1e7d4;
                                 color: #000000;
